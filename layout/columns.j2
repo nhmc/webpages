@@ -1,0 +1,18 @@
+{# Columns template #}
+
+{% extends "base.j2" %}
+
+{% block container %}
+
+<div class="row">
+  <div class="container-narrow">
+      {% filter markdown -%}
+      {% block content %}{% endblock %}
+      {%- endfilter %}
+  </div><!--span-->
+</div><!--row-->
+
+{% endblock container %}
+
+
+

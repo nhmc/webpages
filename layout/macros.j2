@@ -1,0 +1,17 @@
+{% macro render_main_menu() -%}
+<ul class="nav">
+{% for item in menu -%}
+  <li{% if '/'+item.url == resource.url or item.active %} class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
+{%- endfor %}
+</ul>
+{%- endmacro %}
+
+
+
+{% macro render_sidebar() -%}
+<ul>
+{% for menu_item in menu -%}
+  <li{% if menu_item.url == resource.url or menu_item.active %} class="active"{% endif %}><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
+{%- endfor %}
+</ul>
+{%- endmacro %}

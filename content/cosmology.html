@@ -1,0 +1,113 @@
+---
+title: Cosmology
+subtitle: Columns template
+---
+
+{% extends "columns.j2" %}
+
+{% block banner %}
+<img src="media/images/LCO_banner.jpg">
+<p>Sunrise at <a href=http://www.lco.cl> Las Campanas Observatory</a></p>
+{% endblock banner %}
+
+{% block content %}
+
+> *We know of an ancient radiation*  
+> *That haunts dismembered constellations*  
+> *A faintly glimmering radio station*<br><br>
+> <p style="text-indent: 6em;"> &#x2014; [Cake](http://www.cakemusic.com/index2.html), *Frank Sinatra* </p>
+
+
+This page has a calculator useful for answering those questions that
+come up when you're in talks or writing proposals, like *'How many kpc
+correspond to 1 arcminute at redshift 3?'*, *'How bright is an L\* galaxy
+at redshift 1.5?'* or *'What is the lookback time to redshift 2?'*.
+
+For a nice introduction to calculating useful cosmological quantities
+see [Hogg (1999)](http://arxiv.org/abs/astro-ph/9905116) and the
+references therein. The default parameters below are taken from the
+[WMAP7 results](http://lambda.gsfc.nasa.gov/product/map/current/parameters.cfm)
+([ADS](http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1001.4744)). A
+flat cosmology is assumed.
+
+
+<!-- <script src="media/js/libs/jquery-1.5.1.min.js"></script> -->
+<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="media/js/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="media/js/cosmology.js"></script>
+
+<script>init_params();</script>
+
+<!-- The onkeypress attribute here intercepts any keypress. We
+	 process the plots and then return false if it's enter, so we
+	 stop it from propagating further (in Chrome, it reloads the
+	 page otherwise). -->
+
+<div class="cosmo">
+<form name="parform">
+  <table class="form">
+	<tr>
+	  <td> w <input type="text" name="w" onkeypress="return intercept_enter(event);"></td>
+	  <td>H<sub>0</sub> <input type="text" name="H0" onkeypress="return intercept_enter(event);"> km/s/Mpc</td>
+	  <td style="width:50px"></td>
+	  <td><i>z</i><sub>min</sub> <input type="text" name="zmin" onkeypress="return intercept_enter(event);"></td>
+	  <td><i>z</i><sub>max</sub> <input type="text" name="zmax" onkeypress="return intercept_enter(event);"></td>
+	</tr>
+	<tr>
+	  <td>&#x03a9<sub>m</sub> <input type="text" name="Om" onkeypress="return intercept_enter(event);"></td>
+	  <td>&#x03a9<sub>&#x039b</sub>=<a id="printOl" style="text-decoration:none; color:black"> </a>, &#x03a9<sub>k</sub> = 0</td>
+	  <td></td>
+	  <td></td>
+	  <td><input type="button" value=" Plot " onclick="doplots();" > </td>
+	</tr>
+ </table>
+</form>
+
+<p> Comoving distance to <i>z</i><sub>min</sub> = <a id="printDc1" style="border-bottom:0px; color:black"> </a> Mpc <br>
+Comoving distance to <i>z</i><sub>max</sub> = <a id="printDc2" style="border-bottom:0px; color:black"> </a> Mpc </p>
+
+<table style="text-align:center; padding:10px">
+<tbody>
+  <tr>
+	<td> Distance (Mpc) per arcmin </td>
+	<td> Hubble parameter (km/s/Mpc) </td>
+  </tr>
+  <tr style="text-align:left">
+	<td><div id="plot_dist" style="width:270px;height:250px;"></div> </td>
+	<td><div id="plot_H" style="width:270px;height:250px;"></div> </td>
+  </tr>
+  <tr>
+	<td> <i>z</i> </td>
+	<td> <i>z</i> </td>
+  </tr>
+  <tr>
+	<td> Elapsed time since the emission of a <br>
+	     photon with redshift <i>z</i> (Gyr) </td>
+	<td> Rest-frame apparent b magnitude <br>
+	  of a <i>M</i><sub>b</sub> = -21 galaxy </td>
+  </tr>
+  <tr style="text-align:left">
+	<td><div id="plot_Tl" style="width:270px;height:250px;"></div> </td>
+	<td><div id="plot_Lstar" style="width:270px;height:250px;"></div> </td>
+  </tr>
+  <tr>
+	<td> <i>z</i> </td>
+	<td> <i>z</i> </td>
+  </tr>
+</tbody>
+</table>
+
+<script>print_params(); doplots();</script>
+</div>
+
+*M*<sub>b</sub> = -21 roughly corresponds to the L<sup>\*</sup> value of the
+[Schechter luminosity
+function](http://adsabs.harvard.edu/abs/1976ApJ...203..297S) fitted at
+*z* = 0&#x2013;1 by [Faber et
+al. (2007)](http://adsabs.harvard.edu/abs/2007ApJ...665..265F).
+
+Take a look at some other popular [cosmology
+calculators](http://www.google.com/search?hl=en&q=cosmology+calculator).
+
+
+{% endblock content %}

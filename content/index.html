@@ -1,0 +1,60 @@
+---
+title: Welcome
+subtitle: Columns template
+description: Test description
+---
+
+{% extends "columns.j2" %}
+
+{% block banner %}
+<img src="media/images/LCO_banner.jpg">
+<p>Sunrise at <a href=http://www.lco.cl> Las Campanas Observatory</a></p>
+{% endblock banner %}
+
+{% block content %}
+
+I'm an astronomer, which means I'm lucky enough to get paid to
+discover new things about the universe.  Sometimes I also get to
+travel to exotic locations to use telescopes to observe the amazing
+objects that populate the universe.
+
+## News
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="row-fluid">
+	<div class="span6">
+#### July 2013
+  
+  I'll be moving back to Australia in August! I'm moving to the [Centre for Astrophysics and Supercomputing](http://astronomy.swin.edu.au/) at Swinburne University to join [Michael Murphy's](http://astronomy.swin.edu.au/~mmurphy/) group.
+	</div>
+	<div class="span6">
+#### November 2012
+
+  Added a new Publications section along with an html version of my CV. *(Why yes, I am on the job market! How did you guess?)*
+	</div>
+      </div>
+      <div class="row-fluid">
+	<div class="span6">
+#### October 2012
+
+  I've released an updated version of my Python astrophysics package, [Barak](http://nhmc.github.com/Barak).
+
+  Added a publications list to CV.
+	</div>
+	<div class="span6">
+#### July 2012
+
+  Fixed a bug in the calculation of the absolute magnitude of an L* galaxy as a function of redshift.
+	</div>
+      </div>
+      <div class="row-fluid">
+	<div class="span6">
+#### June 2010
+
+  Added a Javascript cosmology calculator to the Cosmology section.
+	</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
