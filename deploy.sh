@@ -1,10 +1,8 @@
 rm -rf deploy
 hyde gen
-touch deploy/.nojekyll
-cd ~/Code/repo/nhmc.github.io
+cd ~/Code/Repo/nhmc.github.io
 rm -rf *
-cp -r ~/webpages/deploy/* .
-git add --all
+cp -r ~/Code/Repo/webpages/deploy/* .
+git add .
 git commit -m'update'
 git push
-cd ~/webpages
